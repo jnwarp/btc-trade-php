@@ -31,9 +31,9 @@ class Connect extends mysqli
 
         // check if there are any conditions that need to be met
         if ($conditions !== []) {
-            $conditions = "WHERE ('" .
-                implode('\',\'', array_values($conditions)) . '\') = (`' .
-                implode('`,`', array_keys($conditions)) . '`)';
+            $conditions = "WHERE (`" .
+                implode('`,`', array_keys($conditions)) . '`) = (\'' .
+                implode('\',\'', array_values($conditions)) . '\')';
         } else {
             $conditions = "";
         }
@@ -57,9 +57,9 @@ class Connect extends mysqli
         $conditions = $this->escapeArray($conditions);
 
         // combine safe array into query
-        $query = "SELECT `id` FROM `$table` WHERE ('" .
-            implode('\',\'', array_values($conditions)) . '\') = (`' .
-            implode('`,`', array_keys($conditions)) . '`);';
+        $query = "SELECT `id` FROM `$table` WHERE (`" .
+        implode('`,`', array_keys($conditions)) . '`) = (\'' .
+        implode('\',\'', array_values($conditions)) . '\')';
         $result = $this->query($query);
 
         return $result->num_rows;
@@ -81,8 +81,8 @@ class Connect extends mysqli
         // combine safe array into query
         $query = "UPDATE `$table` SET " .
             implode(',', array_values($set)) . " WHERE (`" .
-            implode('`,`', array_keys($conditions)) . "`) = ('" .
-            implode('\',\'', array_values($conditions)) . "');";
+            implode('`,`', array_keys($conditions)) . '`) = (\'' .
+            implode('\',\'', array_values($conditions)) . '\')';
         $result = $this->query($query);
 
         return $result;

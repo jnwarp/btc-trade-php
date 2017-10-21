@@ -144,7 +144,7 @@ class Accounts
     {
         // get the account information
         $connect = new Connect();
-        $account_info = $connect->simpleSelect('accounts', 'email', $email);
+        $account_info = $connect->advSelect('accounts', ['email' => $email], ['account_id', 'email', 'password']);
         $connect->close();
 
         // there must be login info available

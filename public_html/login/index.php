@@ -1,5 +1,7 @@
 <?php
     require_once(dirname(__FILE__) . '/../../resources/prepend.php');
+
+    $login = new Login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,10 +23,10 @@
                 <div class="card-body text-primary">
                     <form class="form-signin">
                         <label for="inputEmail" class="sr-only">Email address</label>
-                        <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="Email address" required autofocus>
                         <label for="inputPassword" class="sr-only">Password</label>
-                        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                        <a class="btn btn-lg btn-block btn-primary" href="">Sign in</a>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
+                        <a id="loginButton" class="btn btn-lg btn-block btn-primary" href="#">Sign in</a>
                     </form>
                 </div>
             </div>
@@ -32,8 +34,10 @@
 
         <!-- JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="/js/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/bootstrap-notify.min.js"></script>
+        <script src="/js/login.js"></script>
     </body>
 </html>

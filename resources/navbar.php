@@ -16,6 +16,13 @@
             <a class="nav-link disabled" href="#">Disabled</a>
         </li>
         </ul>
-        <a class="btn btn-outline-danger my-2 my-sm-0" href="/login">Login</a>
+        <?php
+        if ($login->loggedIn) {
+            echo '<a class="btn btn-outline-green my-2 my-sm-0" href="/logout">Logout</a>';
+        } else {
+            echo '<a class="btn btn-outline-danger my-2 my-sm-0" href="/login">Login</a>';
+        }
+        ?>
+        
     </div>
 </nav>

@@ -1,5 +1,7 @@
 <?php
     require_once(dirname(__FILE__) . '/../resources/prepend.php');
+
+    $login = new Login();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -13,17 +15,16 @@
         <link href="/css/homepage.css" rel="stylesheet">
     </head>
     <body>
-        <?php include(dirname(__FILE__) . '/../resources/navbar.php') ?>
+        <?php include(dirname(__FILE__) . '/../resources/navbar.php'); ?>
         
-        <div class="container" style="padding-top: 60px" align="center">
-            <div class="card border-danger mb-3" style="max-width: 30rem; border-width: 2px">
-                <div class="card-body text-danger">
-                <h1>Please sign in</h1>
-                <hr class="bg-danger">
-                <p class="lead">This is a restricted site that requires you to sign in!</p>
-                </div>
-            </div>
-        </div>
+        <?php 
+            if (!$login->loggedIn) {
+                include(dirname(__FILE__) . '/../resources/restricted.php');
+            } else {
+                echo '<p>You are logged in!</p>';
+            }
+        ?>
+        
 
         <!-- JavaScript -->
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
