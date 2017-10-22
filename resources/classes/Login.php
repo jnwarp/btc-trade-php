@@ -39,6 +39,7 @@ class Login
         session_destroy();
     }
 
+    // TODO: Remove part where it loads ALL account info, just check if account enabled.
     public function loadLoginInfo()
     {
         // remember the account id from session

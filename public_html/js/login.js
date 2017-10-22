@@ -35,7 +35,7 @@ function sendLoginInfo() {
 
     // disable the login button and send request
     $('#loginButton').attr('disabled', true);
-    $.post('../php/login-create.php', {
+    $.post('/php/login-create.php', {
             email: $('#loginEmail').val(),
             password: $('#loginPassword').val()
         }, function(response) {

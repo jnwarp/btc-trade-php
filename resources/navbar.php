@@ -18,7 +18,7 @@
         </ul>
         <?php
         if ($login->loggedIn) {
-            echo '<a class="btn btn-outline-green my-2 my-sm-0" href="/logout">Logout</a>';
+            echo '<a id="logoutButton" class="btn btn-outline-success my-2 my-sm-0" href="">Logout</a>';
         } else {
             echo '<a class="btn btn-outline-danger my-2 my-sm-0" href="/login">Login</a>';
         }

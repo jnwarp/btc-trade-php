@@ -2,8 +2,8 @@
 require_once(dirname(__FILE__) . '/../../resources/prepend.php');
 
 // require that the user is logged out
-//$login = new Login();
-//$login->requireLoggedIn();
+$login = new Login();
+$login->requireLoggedIn(false);
 
 // get account email and password
 $email = (isset($_POST['email'])) ? $_POST['email'] : '';

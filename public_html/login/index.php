@@ -2,6 +2,7 @@
     require_once(dirname(__FILE__) . '/../../resources/prepend.php');
 
     $login = new Login();
+    $login->requireLoggedIn(false, true);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,12 +33,7 @@
             </div>
         </div>
 
-        <!-- JavaScript -->
-        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-        <script src="/js/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-        <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/bootstrap-notify.min.js"></script>
+        <?php include(dirname(__FILE__) . '/../../resources/footer.php') ?>
         <script src="/js/login.js"></script>
     </body>
 </html>
