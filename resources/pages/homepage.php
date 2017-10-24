@@ -1,8 +1,8 @@
         <div class="container" style="padding-top: 60px">
             <div class="row">
                 <!-- Price history -->
-                <div class="col-md-4">
-                    <div class="card border-info mb-3" style="border-width: 2px">
+                <div class="col-lg-4">
+                    <div class="card border-info mb-3" style="border-width: 2px;">
                         <h3 class="card-header text-info text-center">BTC / USD</h3>
                         <div class="card-body" style="padding: 0px;">
                             <table class="table table-sm table-striped" style="margin: 0px;">
@@ -32,11 +32,32 @@
                                 </tbody>
                             </table>
                         </div>
+                        <!--div class="card-footer text-muted">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="0.0100 BTC" aria-label="Execute Trade">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">SELL</button>
+                                    <button class="btn btn-success" type="button">BUY</button>
+                                </span>
+                            </div>
+                        </div-->
+                    </div>
+                    <div class="card border-secondary mb-3" style="border-width: 2px">
+                        <h5 class="card-header text-muted text-center">Execute Trade</h5>
+                        <div class="card-body">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="0.0100 BTC" aria-label="Execute Trade" value=0.01>
+                                <span class="input-group-btn">
+                                    <button class="btn btn-danger" type="button">SELL</button>
+                                    <button class="btn btn-success" type="button">BUY</button>
+                                </span>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <!-- Orderbook -->
-                <div class="col-md-8">
+                <div class="col-lg-7 offset-lg-1">
                     <div class="card border-primary mb-3" style="border-width: 2px">
                         <h3 class="card-header text-primary text-center">Orderbook</h3>
                         <div class="card-body" style="padding: 0px;">
@@ -92,6 +113,6 @@
                             </table>
                         </div>
                     </div>
-                </div>
+                </div> <!-- ./col-md-8 -->
             </div>
         </div>

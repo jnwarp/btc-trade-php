@@ -1,5 +1,6 @@
 $(document).ready(function() {
     $('#loginButton').click(function() {
+        e.preventDefault();
         sendLoginInfo();
     });
 
