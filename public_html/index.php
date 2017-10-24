@@ -1,5 +1,5 @@
 <?php
-    require_once(dirname(__FILE__) . '/../resources/prepend.php');
+    require_once(dirname(__FILE__) . '/../resources/snippets/prepend.php');
 
     $login = new Login();
 ?>
@@ -15,17 +15,17 @@
         <link href="/css/homepage.css" rel="stylesheet">
     </head>
     <body>
-        <?php include(dirname(__FILE__) . '/../resources/navbar.php'); ?>
+        <?php include(dirname(__FILE__) . '/../resources/snippets/navbar.php'); ?>
         
         <?php 
             if (!$login->loggedIn) {
-                include(dirname(__FILE__) . '/../resources/restricted.php');
+                include(dirname(__FILE__) . '/../resources/snippets/restricted.php');
             } else {
                 echo '<p>You are logged in!</p>';
             }
         ?>
         
 
-        <?php include(dirname(__FILE__) . '/../resources/footer.php') ?>
+        <?php include(dirname(__FILE__) . '/../resources/snippets/footer.php') ?>
     </body>
 </html>

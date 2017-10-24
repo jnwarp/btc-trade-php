@@ -1,13 +1,13 @@
 <?php
 /*
 This file should be required in every php file.
-require_once(dirname(__FILE__) . '/../../resources/prepend.php');
+require_once(dirname(__FILE__) . '/../../resources/snippets/prepend.php');
 */
 
 // automatically load any classes
 spl_autoload_register(function ($class_name) {
     $class_path = explode('_', $class_name);
-    $file_path = 'classes/' . implode('/', $class_path) . '.php';
+    $file_path = dirname(__FILE__) . '/../classes/' . implode('/', $class_path) . '.php';
     require_once($file_path);
 });
 
@@ -39,8 +39,8 @@ function require_valid($json) {
 }
 
 // load the config file if it exists
-if (file_exists(dirname(__FILE__) . '/config.php')) {
-    require(dirname(__FILE__) . '/config.php');
+if (file_exists(dirname(__FILE__) . '/../config.php')) {
+    require(dirname(__FILE__) . '/../config.php');
 } else {
-    require(dirname(__FILE__) . '/config.default.php');
+    require(dirname(__FILE__) . '/../config.default.php');
 }

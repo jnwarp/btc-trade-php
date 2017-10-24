@@ -1,5 +1,5 @@
 <?php
-    require_once(dirname(__FILE__) . '/../../resources/prepend.php');
+    require_once(dirname(__FILE__) . '/../../resources/snippets/prepend.php');
 
     $login = new Login();
     $login->requireLoggedIn(false, true);
@@ -16,7 +16,7 @@
         <link href="/css/login.css" rel="stylesheet">
     </head>
     <body>
-        <?php include(dirname(__FILE__) . '/../../resources/navbar.php') ?>
+        <?php include(dirname(__FILE__) . '/../../resources/snippets/navbar.php') ?>
 
         <div class="container" style="padding-top: 60px" align="center">
             <div class="card border-primary mb-3" style="max-width: 20rem; border-width: 1px">
@@ -33,7 +33,7 @@
             </div>
         </div>
 
-        <?php include(dirname(__FILE__) . '/../../resources/footer.php') ?>
+        <?php include(dirname(__FILE__) . '/../../resources/snippets/footer.php') ?>
         <script src="/js/login.js"></script>
     </body>
 </html>
