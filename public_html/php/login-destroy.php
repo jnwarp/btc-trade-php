@@ -1,5 +1,5 @@
 <?php
-require_once(dirname(__FILE__) . '/../../resources/prepend.php');
+require_once(dirname(__FILE__) . '/../../resources/snippets/prepend.php');
 
 $login = new Login(false);
 $login->requireLoggedIn();

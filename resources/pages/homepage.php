@@ -13,22 +13,12 @@
                                     <th scope="col">Price</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                    <th scope="row">1</th>
-                                    <td>10/24/2017 5:07pm</td>
-                                    <td>$5,000</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">2</th>
-                                    <td>10/24/2017 5:07pm</td>
-                                    <td>$5,000</td>
-                                    </tr>
-                                    <tr>
-                                    <th scope="row">3</th>
-                                    <td>10/24/2017 5:07pm</td>
-                                    <td>$5,000</td>
-                                    </tr>
+                                <tbody id="price-history">
+                                    <!--tr>
+                                        <th scope="row">1</th>
+                                        <td>10/24/2017 5:07pm</td>
+                                        <td>$5,000</td>
+                                    </tr-->
                                 </tbody>
                             </table>
                         </div>
