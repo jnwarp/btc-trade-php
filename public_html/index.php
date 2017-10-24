@@ -21,7 +21,7 @@
             if (!$login->loggedIn) {
                 include(dirname(__FILE__) . '/../resources/snippets/restricted.php');
             } else {
-                echo '<p>You are logged in!</p>';
+                include(dirname(__FILE__) . '/../resources/pages/homepage.php');
             }
         ?>
         
