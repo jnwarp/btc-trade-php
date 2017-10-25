@@ -6,12 +6,16 @@ $login = new Login();
 $login->requireLoggedIn(true);
 
 // get the price and coin symbol
-$num_shares = (isset($_POST['num_shares'])) ? $_POST['num_shares'] : '0.001';
+$num_dollars = (isset($_POST['num_dollars'])) ? $_POST['num_dollars'] : '0.01';
 $coin_symbol = (isset($_POST['coin_symbol'])) ? $_POST['coin_symbol'] : 'BTC';
+
+// update the prices first
+$prices = new Prices();
+$result = $prices->updatePrice();
 
 // get list of prices
 $orderbook = new Orderbook();
-$result = $orderbook->buyCoin($login->accountId, $num_shares);
+$result = $orderbook->buyCoin($login->accountId, $num_dollars);
 $json = $result;
 
 if (!isset($json['error'])) {

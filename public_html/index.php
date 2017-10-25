@@ -26,7 +26,7 @@
             }
         ?>
         
-        <?php include(dirname(__FILE__) . '/../resources/snippets/footer.php') ?>
-        <script src="/js/homepage.js"></script>
+        <?php include(dirname(__FILE__) . '/../resources/snippets/footer.php'); ?>
+        <?php if ($login->loggedIn) echo('<script src="/js/homepage.js"></script>'); ?>
     </body>
 </html>

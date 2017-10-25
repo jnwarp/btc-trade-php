@@ -68,6 +68,7 @@ class Accounts
                 'account_enabled' => 1
             ]
         );
+
         $connect->close();
 
         return true;

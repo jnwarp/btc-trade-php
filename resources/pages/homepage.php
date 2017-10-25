@@ -35,10 +35,17 @@
                     <div class="card border-secondary mb-3" style="border-width: 2px">
                         <h5 class="card-header text-muted text-center">Execute Trade</h5>
                         <div class="card-body">
-                            <div class="input-group">
-                                <input id="orderAmount" type="text" class="form-control" placeholder="0.00000001" aria-label="Execute Trade">
+                            <div class="input-group  mb-3">
+                                <span class="input-group-addon">BTC</span>
+                                <input id="sellAmount" type="text" class="form-control" placeholder="0.00000001" aria-label="Execute Trade">
                                 <span class="input-group-btn">
                                     <a id="executeSell" class="btn btn-danger" href="#">SELL</a>
+                                </span>
+                            </div>
+                            <div class="input-group">
+                                <span class="input-group-addon">$</span>
+                                <input id="buyAmount" type="text" class="form-control" placeholder="0.01" aria-label="Execute Trade">
+                                <span class="input-group-btn">
                                     <a id="executeBuy" class="btn btn-success" href="#">BUY</a>
                                 </span>
                             </div>

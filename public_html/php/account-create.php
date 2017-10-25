@@ -2,7 +2,7 @@
 require_once(dirname(__FILE__) . '/../../resources/snippets/prepend.php');
 
 // require that the user is logged out
-$login = new Login();
+$login = new Login(false);
 $login->requireLoggedIn(false);
 
 // get account email and password
@@ -16,5 +16,10 @@ $json['valid_password'] = $accounts->checkPassword($password);
 require_valid($json);
 
 // create the account
-$json['success'] = $accounts->createAccount($email, $password);
+if ($accounts->createAccount($email, $password)) {
+    // give the account an initial balance
+    $orderbook = new Orderbook();
+    $json['success'] = $orderbook->initAccount($email);
+}
+
 return_json($json);

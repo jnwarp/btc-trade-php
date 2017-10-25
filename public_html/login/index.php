@@ -29,6 +29,7 @@
                         <label for="inputPassword" class="sr-only">Password</label>
                         <input type="password" id="loginPassword" class="form-control" placeholder="Password" required>
                         <a id="loginButton" class="btn btn-lg btn-block btn-primary" href="#">Sign in</a>
+                        <a id="createAccountButton" class="btn btn-sm btn-block btn-outline-info" href="#">Create Account</a>
                     </form>
                 </div>
             </div>

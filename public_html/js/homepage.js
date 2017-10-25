@@ -1,4 +1,5 @@
 var last_price = 0;
+var first_run = 1;
 
 $(document).ready(function() {
     // get initial details
@@ -125,6 +126,21 @@ function updateOrderbook() {
                 code += temp;
             }
             $('#orderHistory').html(code);
+
+            if (first_run && response.orders[0].order_type == 'INIT') {
+                $.notify({
+                    title: '<b>Starting Balance</b>',
+                    message: 'Your account has been created with an initial starting balance of $5000, have fun!'
+                },{
+                    type: 'primary',
+                    newest_on_top: false,
+                    delay: 10000,
+                    placement: {
+                        from: "top",
+                        align: "center"
+                    }
+                });
+            }
         } else {
             $.notify({
                 title: '<b>Failed to get price history</b>',
@@ -144,7 +160,7 @@ function updateOrderbook() {
 function executeBuy() {
     // send logout request
     $.post('/php/order-buy.php', {
-        num_shares: $('#orderAmount').val(),
+        num_dollars: $('#buyAmount').val(),
         coin_symbol: 'BTC'
     }, function(response) {
         var response = jQuery.parseJSON(response);
@@ -154,7 +170,7 @@ function executeBuy() {
         if (response.success) {
             $.notify({
                 title: '<b>BUY</b>',
-                message: ' of ' + response.buy_total + ' BTC executed at a price of $' + response.usd_value + '!'
+                message: ' of ' + response.num_shares + ' BTC executed at a price of $' + response.usd_value + '!'
             },{
                 type: 'success',
                 newest_on_top: false,
@@ -167,7 +183,7 @@ function executeBuy() {
             if (response.error == 'insufficient_funds') {
                 $.notify({
                     title: '<b>Insufficient funds</b>',
-                	message: 'You tried to execute a trade that costs $' + response.buy_total + ' but you only have $' + response.balance_usd + '.'
+                	message: 'You tried to execute a trade that costs $' + response.num_dollars + ' but you only have $' + response.balance_usd + '.'
                 },{
                 	type: 'warning',
                     newest_on_top: false,
@@ -179,7 +195,7 @@ function executeBuy() {
             } else if (response.error == 'minimum_trade') {
                 $.notify({
                     title: '<b>Minimum trade</b>',
-                	message: 'Please enter a larger trade amount.'
+                	message: 'Please enter a trade of at least $0.01.'
                 },{
                 	type: 'warning',
                     newest_on_top: false,
@@ -208,7 +224,7 @@ function executeBuy() {
 function executeSell() {
     // send logout request
     $.post('/php/order-sell.php', {
-        num_shares: $('#orderAmount').val(),
+        num_shares: $('#sellAmount').val(),
         coin_symbol: 'BTC'
     }, function(response) {
         var response = jQuery.parseJSON(response);
@@ -240,7 +256,19 @@ function executeSell() {
                 		align: "center"
                 	}
                 });
-            } else if (response.error == 'minimum_trade') {
+            } else if (response.error == 'minimum_trade_usd') {
+                $.notify({
+                    title: '<b>Minimum trade</b>',
+                	message: 'Please enter a trade of at least ' + response.min_trade + ' BTC.'
+                },{
+                	type: 'warning',
+                    newest_on_top: false,
+                    placement: {
+                		from: "top",
+                		align: "center"
+                	}
+                });
+            } else if (response.error == 'minimum_trade_btc') {
                 $.notify({
                     title: '<b>Minimum trade</b>',
                 	message: 'Please enter a larger trade amount.'
