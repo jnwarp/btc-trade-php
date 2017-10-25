@@ -24,7 +24,7 @@ function sendLoginInfo() {
             message: 'There are one or more inputs missing.'
         },{
             type: 'warning',
-            newest_on_top: true,
+            newest_on_top: false,
             placement: {
                 from: "top",
                 align: "center"
@@ -48,7 +48,7 @@ function sendLoginInfo() {
             	message: 'You have now been logged in successfully!'
             },{
             	type: 'success',
-                newest_on_top: true,
+                newest_on_top: false,
                 placement: {
             		from: "top",
             		align: "center"
@@ -64,7 +64,7 @@ function sendLoginInfo() {
                 	message: 'There have been too many failed login attempts from this IP address, please wait one hour and try again.'
                 },{
                 	type: 'danger',
-                    newest_on_top: true,
+                    newest_on_top: false,
                     placement: {
                 		from: "top",
                 		align: "center"
@@ -76,7 +76,7 @@ function sendLoginInfo() {
                 	message: 'You have entered incorrect login information, please try again.'
                 },{
                 	type: 'warning',
-                    newest_on_top: true,
+                    newest_on_top: false,
                     placement: {
                 		from: "top",
                 		align: "center"

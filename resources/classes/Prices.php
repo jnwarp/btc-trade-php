@@ -42,7 +42,7 @@ class Prices
         // construct 
         $query = "SELECT `price_id` " .
             "FROM `prices` " . 
-            "WHERE `time` > (NOW() - INTERVAL 2 MINUTE) " .
+            "WHERE `time` > (NOW() - INTERVAL 90 SECOND) " .
             "LIMIT 1;";
         $result = $connect->query($query);
 

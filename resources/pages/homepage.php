@@ -13,7 +13,7 @@
                                     <th scope="col">Price</th>
                                     </tr>
                                 </thead>
-                                <tbody id="price-history">
+                                <tbody id="priceHistory">
                                     <!--tr>
                                         <th scope="row">1</th>
                                         <td>10/24/2017 5:07pm</td>
@@ -36,10 +36,10 @@
                         <h5 class="card-header text-muted text-center">Execute Trade</h5>
                         <div class="card-body">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="0.0100 BTC" aria-label="Execute Trade" value=0.01>
+                                <input id="orderAmount" type="text" class="form-control" placeholder="0.00000001" aria-label="Execute Trade">
                                 <span class="input-group-btn">
-                                    <button class="btn btn-danger" type="button">SELL</button>
-                                    <button class="btn btn-success" type="button">BUY</button>
+                                    <a id="executeSell" class="btn btn-danger" href="#">SELL</a>
+                                    <a id="executeBuy" class="btn btn-success" href="#">BUY</a>
                                 </span>
                             </div>
                         </div>
@@ -65,8 +65,8 @@
                                     <th scope="col"></th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr class="table-success">
+                                <tbody id="orderHistory">
+                                    <!--tr class="table-success">
                                     <th scope="row">1</th>
                                     <td>10/24/2017 5:07pm</td>
                                     <td>BUY</td>
@@ -76,29 +76,7 @@
                                     <td class="text-right">$100</td>
                                     <td class="text-right">0.0200</td>
                                     <td>BTC</td>
-                                    </tr>
-                                    <tr class="table-danger">
-                                    <th scope="row">2</th>
-                                    <td>10/24/2017 5:07pm</td>
-                                    <td>SELL</td>
-                                    <td class="text-right">0.0200</td>
-                                    <td>BTC</td>
-                                    <td class="text-right">$5,000</td>
-                                    <td class="text-right">$100</td>
-                                    <td class="text-right">0.0200</td>
-                                    <td>BTC</td>
-                                    </tr>
-                                    <tr class="table-success">
-                                    <th scope="row">3</th>
-                                    <td>10/24/2017 5:07pm</td>
-                                    <td>BUY</td>
-                                    <td class="text-right">0.0200</td>
-                                    <td>BTC</td>
-                                    <td class="text-right">$5,000</td>
-                                    <td class="text-right">$100</td>
-                                    <td class="text-right">0.0200</td>
-                                    <td>BTC</td>
-                                    </tr>
+                                    </tr-->
                                 </tbody>
                             </table>
                         </div>

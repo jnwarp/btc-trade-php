@@ -11,7 +11,7 @@ $coin_symbol = (isset($_POST['coin_symbol'])) ? $_POST['coin_symbol'] : 'BTC';
 
 // get list of prices
 $orderbook = new Orderbook();
-$result = $orderbook->buyCoin($login->accountId, $num_shares);
+$result = $orderbook->sellCoin($login->accountId, $num_shares);
 $json = $result;
 
 if (!isset($json['error'])) {
