@@ -1,6 +1,6 @@
 $(document).ready(function() {
     updatePrices();
-    setInterval(function(){ updatePrices(); }, 50000);
+    setInterval(function(){ updatePrices(); }, 120000);
 });
 
 function updatePrices() {
@@ -13,12 +13,26 @@ function updatePrices() {
         if (response.success) {
             // rebuild price history table
             var code = '';
-            var rowCode = '<tr><th scope="row"><!--price_id--></th><td><!--time--></td><td><!--usd_value--></td></tr>';
+            var rowCode = '<tr><th scope="row"><!--price_id--></th><td><!--time--></td><td class="<!--text_color-->"><!--usd_value--> <i class="fa <!--fa_icon-->" aria-hidden="true"></i></td></tr>';
             for (i in response.prices) {
-                code += rowCode
+                i = parseInt(i);
+                
+                temp = rowCode
                     .replace('<!--price_id-->', response.prices[i].price_id)
                     .replace('<!--time-->', response.prices[i].time)
                     .replace('<!--usd_value-->', response.prices[i].usd_value);
+
+                if (response.prices[i + 1] === undefined) {
+                    temp = temp
+                        .replace('<!--text_color-->', '')
+                        .replace('<!--fa_icon-->', 'fa-minus-circle');
+                } else {
+                    temp = temp
+                        .replace('<!--text_color-->', (response.prices[i].usd_value > response.prices[i + 1].usd_value) ? 'text-success' : 'text-danger')
+                        .replace('<!--fa_icon-->', (response.prices[i].usd_value > response.prices[i + 1].usd_value) ? 'fa-chevron-circle-up' : 'fa-chevron-circle-down');
+                }
+
+                code += temp;
             }
             $('#price-history').html(code);
 
