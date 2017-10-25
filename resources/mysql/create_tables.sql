@@ -2,7 +2,7 @@ CREATE TABLE accounts (
     account_id int NOT NULL AUTO_INCREMENT,
     account_enabled BOOLEAN NOT NULL,
     email CHAR(254) NOT NULL,
-    password CHAR(31) NOT NULL,
+    password CHAR(60) NOT NULL,
     CONSTRAINT pk_AccountID PRIMARY KEY(account_id)
 );
 
