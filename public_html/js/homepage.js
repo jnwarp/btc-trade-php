@@ -16,7 +16,7 @@ function updatePrices() {
             var rowCode = '<tr><th scope="row"><!--price_id--></th><td><!--time--></td><td class="<!--text_color-->"><!--usd_value--> <i class="fa <!--fa_icon-->" aria-hidden="true"></i></td></tr>';
             for (i in response.prices) {
                 i = parseInt(i);
-                
+
                 temp = rowCode
                     .replace('<!--price_id-->', response.prices[i].price_id)
                     .replace('<!--time-->', response.prices[i].time)
@@ -26,10 +26,18 @@ function updatePrices() {
                     temp = temp
                         .replace('<!--text_color-->', '')
                         .replace('<!--fa_icon-->', 'fa-minus-circle');
+                } else if (response.prices[i].usd_value > response.prices[i + 1].usd_value) {
+                    temp = temp
+                    .replace('<!--text_color-->', 'text-success')
+                    .replace('<!--fa_icon-->', 'fa-chevron-circle-up');
+                } else if (response.prices[i].usd_value < response.prices[i + 1].usd_value) {
+                    temp = temp
+                    .replace('<!--text_color-->', 'text-danger')
+                    .replace('<!--fa_icon-->', 'fa-chevron-circle-down');
                 } else {
                     temp = temp
-                        .replace('<!--text_color-->', (response.prices[i].usd_value > response.prices[i + 1].usd_value) ? 'text-success' : 'text-danger')
-                        .replace('<!--fa_icon-->', (response.prices[i].usd_value > response.prices[i + 1].usd_value) ? 'fa-chevron-circle-up' : 'fa-chevron-circle-down');
+                        .replace('<!--text_color-->', '')
+                        .replace('<!--fa_icon-->', 'fa-minus-circle');
                 }
 
                 code += temp;
@@ -38,8 +46,7 @@ function updatePrices() {
 
             if (response.last_price != false) {
                 $.notify({
-                    title: '<b>New Value</b>',
-                    message: 'BTC is now trading for ' + response.last_price + '.'
+                    message: 'BTC is now trading for $' + response.last_price + '.'
                 },{
                     type: 'info',
                     newest_on_top: true,

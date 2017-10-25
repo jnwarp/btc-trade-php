@@ -53,7 +53,7 @@ class Prices
         // call BitStamp api to get latest price
         $result = file_get_contents("https://www.bitstamp.net/api/ticker/");
         $result = json_decode($result, true);
-        $price = intval($result['last']);
+        $price = ((float) intval($result['last'] * 100)) / 100;
 
         $query = "INSERT INTO `prices` " .
             "(`coin_symbol`, `time`, `usd_value`) " . 
